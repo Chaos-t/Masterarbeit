@@ -1,0 +1,1 @@
+{"Montag":["Saufen","Saufen","Saufen","Saufen","Saufen","Saufen","Saufen","Saufen","Saufen","Saufen","Saufen","Saufen"],"Dienstag":["","","","","","","","","","","",""],"Mittwoch":["","","","","","","","","","","",""],"Donnerstag":["","","","","","","","","","","",""],"Freitag":["","","","","","","","","","","",""]}

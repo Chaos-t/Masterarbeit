@@ -1,0 +1,21 @@
+﻿<Window x:Class="NamenschildDesktop.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:controls="clr-namespace:IPBox"
+        xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit"
+        xmlns:s="clr-namespace:System;assembly=mscorlib"
+        mc:Ignorable="d"
+        Title="MainWindow" Height="450" Width="432.5" ResizeMode="NoResize" WindowStartupLocation="CenterScreen">
+    <Grid HorizontalAlignment="Left" Width="422">
+        <ListBox Name="IPListe" Margin="10,10,241,10"/>
+        <controls:IPTextBox x:Name="IPBox" Margin="260,232,36,154"/>
+        <Button Name="AddIP" Margin="260,270,36,112">IP Hinzufügen</Button>
+        <Button Name="Search" Margin="260,370,36,12" IsEnabled="False">Gerät suchen</Button>
+        <Button Name="Connect" Margin="260,10,36,373">Verbinden</Button>
+        <Button Name="DeleteIP" Margin="260,54,36,333">Entfernen</Button>
+        <Button Name="ReCheck" Margin="260,314,36,60">Prüfe Verbindungen</Button>
+        <ListView Focusable="false" Name="Online" Margin="181,10,169,10"/>
+    </Grid>
+</Window>

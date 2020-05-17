@@ -1,0 +1,1 @@
+[{"From":8,"To":17,"Day":"Montag","Title":"Hans Decker R"},{"From":10,"To":12,"Day":"Montag","Title":"Capgemini Vortrag"},{"From":12,"To":14,"Day":"Montag","Title":"adesso Vortrag"},{"From":14,"To":16,"Day":"Montag","Title":"Materna Vortrag"}]

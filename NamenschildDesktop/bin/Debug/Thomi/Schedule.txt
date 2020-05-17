@@ -1,0 +1,1 @@
+{"Montag":["Hans Decker","Hans Decker","Capgemini V.","Capgemini V.","adesso V.","adesso V.","Materna V.","Materna V.","","","",""],"Dienstag":["","","","","","","","","","","",""],"Mittwoch":["","","","","","","","","","","",""],"Donnerstag":["","","","","","","","","","","",""],"Freitag":["","","","","","","","","","","",""]}

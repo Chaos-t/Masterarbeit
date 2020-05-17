@@ -1,0 +1,643 @@
+﻿<Window x:Class="NamenschildDesktop.ConnectWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:NamenschildDesktop"
+        mc:Ignorable="d"
+        WindowState="Normal"  ResizeMode="CanMinimize"
+        Title="ConnectWindow" Height="500.215" Width="810" WindowStartupLocation="CenterScreen">
+    <Grid>
+        <TabControl Name="MainTabControl" Margin="0,0,0,73">
+            <TabItem Header="Gerät" Width="110">
+                <Grid Margin="0,0,0,-4">
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="167*"/>
+                        <ColumnDefinition Width="40*"/>
+                        <ColumnDefinition Width="592*"/>
+                    </Grid.ColumnDefinitions>
+                    <TextBlock Name="appInstalled" Margin="326,36,132,313" Grid.Column="2">App ist nicht installiert</TextBlock>
+                    <Button Name="Install" Margin="464,23,29,313" Grid.Column="2">Installieren</Button>
+                    <Button Name="Uninstall" Margin="464,71,29,265" RenderTransformOrigin="0.5,0.5" Grid.Column="2" >Deinstallieren
+                    </Button>
+                    <Button Name="Restart" Margin="326,71,144,265" RenderTransformOrigin="0.5,0.5" Grid.Column="2" Content="Gerät neustarten" />
+
+                    <Label Height="30" Margin="37,29,14.5,315">Gerätename</Label>
+                    <TextBox MaxLength="20" Name="HardwareName" Margin="43,57,581,284" Grid.ColumnSpan="3"/>
+
+                    <Label Height="30" Margin="37,106,14.5,238">Netzwerk</Label>
+                    <TextBlock Name="Network" Height="30" Width="174" Margin="45,135,579,209" Grid.ColumnSpan="3"/>
+
+                    <Label Height="30" Margin="37,167,14.5,177">IP-Adresse</Label>
+                    <TextBlock Name="IP" Height="30" Width="174" Margin="45,199,579,145" Grid.ColumnSpan="3"/>
+
+                    <Label Height ="30" Margin="76,29,366,315" Grid.Column="2">Betriebssystemversion</Label>
+                    <TextBlock Name="OS" Height="30" Width="174" Margin="80,60,338,284" Grid.Column="2"/>
+
+                    <Label Height="30" Margin="37,303,14.5,41">Ipv4</Label>
+                    <TextBlock Name="Ipv4" Height="30" Width="174" Margin="45,337,579,7" Grid.ColumnSpan="3"/>
+
+                    <Label Height="30" Margin="37,232,14.5,112">Ipv6</Label>
+                    <TextBlock Name="Ipv6" Height="30" Margin="45,269,579,75" Grid.ColumnSpan="3"/>
+
+                    <PasswordBox MaxLength="20" Name="Password"  Margin="80,213,337,128" Grid.Column="2"/>
+                    <Border BorderThickness="2" BorderBrush="LightGray" Margin="326,129,29,58" Grid.Column="2">
+                        <Image Name="Screenshot"></Image>
+                    </Border>
+
+                    <TextBlock Name="Username" Margin="84,138,335,203" Grid.Column="2"/>
+                    <Label Height ="30" Margin="76,98,366,246" Content="Benutzername" Grid.Column="2"/>
+                    <Label Height ="30" Margin="76,174,366,170" Content="Password" Grid.Column="2"/>
+
+                    <Button Name="Screen" Margin="464,322,29,15" RenderTransformOrigin="0.5,0.5" Content="Schnappschuss" Grid.Column="2" />
+
+                    <Label Margin="76,281,320,56" Grid.Column="2">Profil laden</Label>
+                    <ComboBox SelectedIndex="0" Name="LoadProfil" Margin="80,318,392,20" Grid.Column="2">
+                        <ComboBoxItem>Default</ComboBoxItem>
+                        <ComboBoxItem>Neues Profil</ComboBoxItem>
+                    </ComboBox>
+                    <Button x:Name="Login" Margin="328,322,144,15" RenderTransformOrigin="0.5,0.5" Content="Change Local Login" Grid.Column="2" />
+
+                </Grid>
+            </TabItem>
+            <TabItem Header="Infoleiste" Width="110">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="62*"/>
+                        <ColumnDefinition Width="737*"/>
+                    </Grid.ColumnDefinitions>
+                    <Label Margin="22,52,704,207" Grid.ColumnSpan="2" >Titel</Label>
+                    <TextBox MaxLength="20"  Name="InfoTitle" Margin="29,102,557,231" Grid.ColumnSpan="2" />
+
+                    <Label Margin="22,144,557,114" Grid.ColumnSpan="2" >Lehrstuhl</Label>
+                    <TextBox MaxLength="10" Name="Chair" Margin="30,188,557,146" Grid.ColumnSpan="2" />
+
+                    <Label Margin="22,224,557,34" Grid.ColumnSpan="2" >Raum</Label>
+                    <TextBox MaxLength="10" Name="Room" Margin="30,268,557,66" Grid.ColumnSpan="2" />
+
+                    <Border BorderThickness="2" BorderBrush="LightGray" Margin="290.5,65,308,176" Grid.Column="1" >
+                        <Image Name="LeftLogo"  Margin="0,0,0,-2"/>
+                    </Border>
+                    <Button Name="LeftLogoButton" Content="Upload linkes Logo" Margin="290.5,240,307,76" Grid.Column="1"  />
+
+                    <Border BorderThickness="2" BorderBrush="LightGray" Margin="492.5,65,107,176" RenderTransformOrigin="0.5,0.5" Grid.Column="1" >
+                        <Image Name="RightLogo"  Margin="0,0,0,-2"/>
+                    </Border>
+                    <Button Name="RightLogoButton" Content="Upload rechtes Logo" Margin="491.5,240,106,76" Grid.Column="1"  />
+
+                </Grid>
+            </TabItem>
+            <TabItem  Name ="ProfilHeadTab" Header="Profil" Width="110">
+                <Grid>
+
+                    <Label Height ="30" Margin="10,10,234,330" Grid.ColumnSpan="2">Tab einschalten</Label>
+                    <CheckBox Name="ProfilTab" Height ="30" Margin="116,17,188,323"></CheckBox>
+                    <Border BorderThickness="5" BorderBrush="LightGray" Margin="0,44,0,312"/>
+
+                    <Grid Name="ProfilMainTab" >
+                        <TabControl  Margin="0,50,0,0" >
+                            <TabItem Header="Profil 1" Width="132" IsEnabled="False">
+                                <Grid>
+
+                                    <Label Name="ProfTitle1" Margin="9,4,192,245" Content="Profil aktivieren"/>
+                                    <CheckBox Name="CheckProfil1" Margin="116,10,600,257"/>
+
+                                    <Label Name ="ProfilTitle1" IsEnabled="False" Margin="30,50,694,212" Height="30" Grid.ColumnSpan="2">Titel</Label>
+
+                                    <CheckBox IsEnabled="False" Name="ProfChecked1" Margin="38,76,718,190"/>
+                                    <Label IsEnabled="False" Name="ProfText1" Margin="79,71,668,178" Content="Prof. "/>
+                                    <CheckBox IsEnabled="False" Name="DocChecked1" Margin="150,76,615,188"/>
+                                    <Label IsEnabled="False" Name="DocText1" Margin="178,71,572,178" Content="Dr. "/>
+                                    <CheckBox IsEnabled="False" Name="OtherChecked1" Margin="240,76,523,188" />
+                                    <TextBox IsEnabled="False" Name="OtherText1" Margin="274,72,423,192"/>
+
+
+
+                                    <Label Name="ProfVorname1" IsEnabled="False" Margin="32,96,640,166" Height="30">Vorname</Label>
+                                    <Label Name="ProfName1" IsEnabled="False" Margin="32,150,634,112" Height="30">Nachname</Label>
+                                    <Label Name="ProfBeruf1" IsEnabled="False" Margin="32,210,694,52" Height="30">Beruf</Label>
+                                    <Label Name="ProfStreet1" IsEnabled="False" Margin="253,96,401,166" Height="30">Straße</Label>
+                                    <Label Name="ProfPLZ1" IsEnabled="False" Margin="253,148,401,114" Height="30">PLZ</Label>
+                                    <Label Name="ProfPlace1" IsEnabled="False" Margin="253,210,401,52" Height="30">Ort</Label>
+                                    <Label Name="ProfPhone1" IsEnabled="False" Margin="467,148,187,114" Height="30">Telefon</Label>
+                                    <Label Name="ProfFax1" IsEnabled="False" Margin="467,90,187,172" Height="30">Fax</Label>
+                                    <Label Name="ProfEmail1" IsEnabled="False" Margin="467,214,203,48" Height="30" Content="E-Mail"/>
+
+
+                                    <TextBox MaxLength="25" IsEnabled="False" Name="Forename1" Margin="38,119,593,138"/>
+                                    <TextBox MaxLength="25" IsEnabled="False" Name="Surname1" Margin="39,179,592,76"/>
+                                    <TextBox MaxLength="25" IsEnabled="False" Name="Job1" Margin="38,239,593,16"/>
+                                    <TextBox MaxLength="25" IsEnabled="False" Name="Street1" Margin="259,119,372,138"/>
+                                    <TextBox MaxLength="25" IsEnabled="False" Name="Zip1"  PreviewTextInput="NumberValidationTextBox"  Margin="259,177,372,76"/>
+                                    <TextBox MaxLength="25" IsEnabled="False" Name="Place1" Margin="259,237,372,16"/>
+                                    <TextBox MaxLength="25" IsEnabled="False" Name="Fax1" Margin="475,119,156,138"/>
+                                    <TextBox MaxLength="25" IsEnabled="False" Name="Phone1" Margin="476,177,155,76"/>
+                                    <TextBox MaxLength="30" IsEnabled="False" Name="Email1" Margin="476,237,155,16"/>
+
+
+                                    <Border BorderThickness="2" BorderBrush="LightGray" Margin="651,44,9,105">
+                                        <Image IsEnabled="False" Name="ProfilImage1" Margin="0,0,0,-47"/>
+                                    </Border>
+                                    <Button IsEnabled="False" Name="ProfilImage1Button" Content="Upload Profil Logo" Margin="651,199,8,45" />
+                                </Grid>
+                            </TabItem>
+                            <TabItem Header="Profil 2" Width="132" IsEnabled="False">
+                                <Grid>
+                                    <Grid.ColumnDefinitions>
+                                        <ColumnDefinition Width="61*"/>
+                                        <ColumnDefinition Width="203*"/>
+                                    </Grid.ColumnDefinitions>
+
+                                    <Label Margin="9,4,192,245" Content="Profil aktivieren" Grid.ColumnSpan="2"/>
+                                    <CheckBox  Name="CheckProfil2" Margin="116,10,600,257" Grid.ColumnSpan="2"/>
+
+                                    <Label Name="ProfilTitle2" IsEnabled="False" Margin="30,50,85,212" Height="30">Titel</Label>
+
+                                    <CheckBox IsEnabled="False" Name="ProfChecked2" Margin="38,76,109,190"/>
+                                    <Label IsEnabled="False" Name="ProfText2" Margin="79,71,59,178" Content="Prof. "/>
+                                    <CheckBox IsEnabled="False" Name="DocChecked2" Margin="150,76,6,188"/>
+                                    <Label IsEnabled="False" Name="DocText2" Margin="178,71,572,178" Content="Dr. " Grid.ColumnSpan="2"/>
+                                    <CheckBox IsEnabled="False" Name="OtherChecked2" Margin="57,76,523,188" Grid.Column="1" />
+                                    <TextBox MaxLength="10" IsEnabled="False" Name="OtherText2" Margin="91,72,423,192" Grid.Column="1"/>
+
+
+                                    <Label Name="ProfVorname2" IsEnabled="False" Margin="32,96,31,166" Height="30">Vorname</Label>
+                                    <Label Name="ProfName2" IsEnabled="False" Margin="32,150,25,112" Height="30">Nachname</Label>
+                                    <Label Name="ProfBeruf2" IsEnabled="False" Margin="32,210,85,52" Height="30">Beruf</Label>
+                                    <Label Name="ProfStreet2" IsEnabled="False" Margin="70,96,401,166" Height="30" Grid.Column="1">Straße</Label>
+                                    <Label Name="ProfPLZ2" IsEnabled="False" Margin="70,148,401,114" Height="30" Grid.Column="1">PLZ</Label>
+                                    <Label Name="ProfPlace2" IsEnabled="False" Margin="70,210,401,52" Height="30" Grid.Column="1">Ort</Label>
+                                    <Label Name="ProfPhone2" IsEnabled="False" Margin="284,148,187,114" Height="30" Grid.Column="1">Telefon</Label>
+                                    <Label Name="ProfFax2" IsEnabled="False" Margin="284,90,187,172" Height="30" Grid.Column="1">Fax</Label>
+                                    <Label Name="ProfEmail2" IsEnabled="False" Margin="284,214,203,48" Height="30" Content="E-Mail" Grid.Column="1"/>
+
+                                    <TextBox MaxLength="25" IsEnabled="False" Name="Forename2" Margin="38,119,593,138" Grid.ColumnSpan="2"/>
+                                    <TextBox MaxLength="25" IsEnabled="False" Name="Surname2" Margin="39,179,592,76" Grid.ColumnSpan="2"/>
+                                    <TextBox MaxLength="25" IsEnabled="False" Name="Job2" Margin="38,239,593,16" Grid.ColumnSpan="2"/>
+                                    <TextBox MaxLength="25" IsEnabled="False" Name="Street2" Margin="76,119,372,138" Grid.Column="1"/>
+                                    <TextBox MaxLength="25" IsEnabled="False" Name="Zip2" Margin="76,177,372,76"  PreviewTextInput="NumberValidationTextBox" Grid.Column="1"/>
+                                    <TextBox MaxLength="25" IsEnabled="False" Name="Place2" Margin="76,237,372,16" Grid.Column="1"/>
+                                    <TextBox MaxLength="25" IsEnabled="False" Name="Fax2" Margin="292,119,156,138" Grid.Column="1"/>
+                                    <TextBox MaxLength="25" IsEnabled="False" Name="Phone2" Margin="293,177,155,76" Grid.Column="1"/>
+                                    <TextBox MaxLength="30" IsEnabled="False" Name="Email2" Margin="293,237,155,16" Grid.Column="1"/>
+
+
+                                    <Border BorderThickness="2" BorderBrush="LightGray" Margin="468,44,9,105" Grid.Column="1">
+                                        <Image Name="ProfilImage2" Margin="0,0,0,-47"/>
+                                    </Border>
+                                    <Button IsEnabled="False" Name="ProfilImage2Button" Content="Upload Profil Logo" Margin="468,199,8,45" Grid.Column="1" />
+                                </Grid>
+                            </TabItem>
+                            <TabItem Header="Profil 3" Width="132" IsEnabled="False">
+                                <Grid>
+
+                                    <Label Margin="9,4,192,245" Content="Profil aktivieren"/>
+                                    <CheckBox Name="CheckProfil3" Margin="116,10,600,257"/>
+
+                                    <Label Name="ProfilTitle3" IsEnabled="False" Margin="30,50,694,212" Height="30" Grid.ColumnSpan="2">Titel</Label>
+
+                                    <CheckBox IsEnabled="False" Name="ProfChecked3" Margin="38,76,718,190"/>
+                                    <Label IsEnabled="False" Name="ProfText3" Margin="79,71,668,178" Content="Prof. "/>
+                                    <CheckBox IsEnabled="False" Name="DocChecked3" Margin="150,76,615,188"/>
+                                    <Label IsEnabled="False" Name="DocText3" Margin="178,71,572,178" Content="Dr. "/>
+                                    <CheckBox IsEnabled="False" Name="OtherChecked3" Margin="240,76,523,188" />
+                                    <TextBox IsEnabled="False" Name="OtherText3" Margin="274,72,423,192"/>
+
+
+
+                                    <Label Name="ProfVorname3" IsEnabled="False" Margin="32,96,640,166" Height="30">Vorname</Label>
+                                    <Label Name="ProfName3" IsEnabled="False" Margin="32,150,634,112" Height="30">Nachname</Label>
+                                    <Label Name="ProfBeruf3" IsEnabled="False" Margin="32,210,694,52" Height="30">Beruf</Label>
+                                    <Label Name="ProfStreet3" IsEnabled="False" Margin="253,96,401,166" Height="30">Straße</Label>
+                                    <Label Name="ProfPLZ3" IsEnabled="False" Margin="253,148,401,114" Height="30">PLZ</Label>
+                                    <Label Name="ProfPlace3" IsEnabled="False" Margin="253,210,401,52" Height="30">Ort</Label>
+                                    <Label Name="ProfPhone3" IsEnabled="False" Margin="467,148,187,114" Height="30">Telefon</Label>
+                                    <Label Name="ProfFax3" IsEnabled="False" Margin="467,90,187,172" Height="30">Fax</Label>
+                                    <Label Name="ProfEmail3" IsEnabled="False" Margin="467,214,203,48" Height="30" Content="E-Mail"/>
+
+
+                                    <TextBox MaxLength="25" IsEnabled="False" Name="Forename3" Margin="38,119,593,138"/>
+                                    <TextBox MaxLength="25" IsEnabled="False" Name="Surname3" Margin="39,179,592,76"/>
+                                    <TextBox MaxLength="25" IsEnabled="False" Name="Job3" Margin="38,239,593,16"/>
+                                    <TextBox MaxLength="25" IsEnabled="False" Name="Street3" Margin="259,119,372,138"/>
+                                    <TextBox MaxLength="25" IsEnabled="False" Name="Zip3"  PreviewTextInput="NumberValidationTextBox" Margin="259,177,372,76"/>
+                                    <TextBox MaxLength="25" IsEnabled="False" Name="Place3" Margin="259,237,372,16"/>
+                                    <TextBox MaxLength="25" IsEnabled="False" Name="Fax3" Margin="475,119,156,138"/>
+                                    <TextBox MaxLength="25" IsEnabled="False" Name="Phone3" Margin="476,177,155,76"/>
+                                    <TextBox MaxLength="30" IsEnabled="False" Name="Email3" Margin="476,237,155,16"/>
+
+
+
+                                    <Border BorderThickness="2" BorderBrush="LightGray" Margin="651,44,9,105">
+                                        <Image IsEnabled="False" Name="ProfilImage3" Margin="0,0,0,-47"/>
+                                    </Border>
+                                    <Button IsEnabled="False" Name="ProfilImage3Button" Content="Upload Profil Logo" Margin="651,199,8,45" />
+                                </Grid>
+                            </TabItem>
+                        </TabControl>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem  Header="Aktuelles" Width="110">
+                <Grid>
+                    <Label Height ="30" Margin="10,10,234,330">Tab einschalten</Label>
+                    <CheckBox Name="ActualTab" Height ="30" Margin="116,17,193,323"></CheckBox>
+                    <Border BorderThickness="5" BorderBrush="LightGray" Margin="0,40,0,312"/>
+                    <Grid Name="ActualMainTab">
+                        <Label Margin="6,58,-6,270" IsEnabled="False">Titel</Label>
+                        <TextBox MaxLength="27" Name="ActualTitle" TextWrapping="Wrap" Margin="10,96,318,231" IsEnabled="False"></TextBox>
+
+                        <Label Margin="6,144,10,166" IsEnabled="False">Text</Label>
+                        <TextBox MaxLength="600" Name="ActualText" TextWrapping="Wrap" Margin="10,173,10,10" IsEnabled="False"></TextBox>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Veranstaltung" Width="110">
+                <Grid>
+                    <Label Height ="30" Margin="10,10,234,330">Tab einschalten</Label>
+                    <CheckBox Name="EventTab" Height ="30" Margin="116,17,646,323"></CheckBox>
+                    <Border BorderThickness="5" BorderBrush="LightGray" Margin="0,40,0,312"/>
+                    <Grid Name="EventMainTab">
+                        <Label Margin="6,58,-6,270" IsEnabled="False">Anzahl der Veranstaltungen</Label>
+                        <ComboBox SelectedIndex="0" Name="NumberOfEvents" Margin="167,62,578,270" IsEnabled="False">
+                            <ComboBoxItem>1</ComboBoxItem>
+                            <ComboBoxItem>2</ComboBoxItem>
+                            <ComboBoxItem>3</ComboBoxItem>
+                            <ComboBoxItem>4</ComboBoxItem>
+                        </ComboBox>
+
+                        <Label Name="EventTheme1" Margin="6,86,699,244" IsEnabled="False">Veranstaltung 1</Label>
+                        <Label Name="EventLabelTitle1" Margin="8,120,741,215" IsEnabled="False">Titel</Label>
+                        <TextBox MaxLength="30" Name="EventTitle1" Margin="57,118,303,215" IsEnabled="False"/>
+
+                        <ComboBox SelectedIndex="0" x:Name="EventDay1" Margin="500,119,197,216" IsEnabled="False">
+                            <ComboBoxItem Content="Montag"/>
+                            <ComboBoxItem Content="Dienstag"/>
+                            <ComboBoxItem Content="Mittwoch"/>
+                            <ComboBoxItem Content="Donnerstag"/>
+                            <ComboBoxItem Content="Freitag"/>
+                        </ComboBox>
+
+                        <Label Name="EventLabelFrom1" Margin="602,119,153,216" IsEnabled="False">Von</Label>
+                        <ComboBox SelectedIndex="0" Name="EventFrom1" Margin="646,119,100,216" IsEnabled="False">
+                            <ComboBoxItem>8</ComboBoxItem>
+                            <ComboBoxItem>9</ComboBoxItem>
+                            <ComboBoxItem>10</ComboBoxItem>
+                            <ComboBoxItem>11</ComboBoxItem>
+                            <ComboBoxItem>12</ComboBoxItem>
+                            <ComboBoxItem>13</ComboBoxItem>
+                            <ComboBoxItem>14</ComboBoxItem>
+                            <ComboBoxItem>15</ComboBoxItem>
+                            <ComboBoxItem>16</ComboBoxItem>
+                            <ComboBoxItem>17</ComboBoxItem>
+                            <ComboBoxItem>18</ComboBoxItem>
+                            <ComboBoxItem>19</ComboBoxItem>
+                        </ComboBox>
+                        <Label Name="EventLabelTo1" Margin="699,119,60,216" IsEnabled="False">Bis</Label>
+                        <ComboBox SelectedIndex="0" Name="EventTo1" Margin="738,120,8,215" IsEnabled="False">
+                            <ComboBoxItem>9</ComboBoxItem>
+                            <ComboBoxItem>10</ComboBoxItem>
+                            <ComboBoxItem>11</ComboBoxItem>
+                            <ComboBoxItem>12</ComboBoxItem>
+                            <ComboBoxItem>13</ComboBoxItem>
+                            <ComboBoxItem>14</ComboBoxItem>
+                            <ComboBoxItem>15</ComboBoxItem>
+                            <ComboBoxItem>16</ComboBoxItem>
+                            <ComboBoxItem>17</ComboBoxItem>
+                            <ComboBoxItem>18</ComboBoxItem>
+                            <ComboBoxItem>19</ComboBoxItem>
+                            <ComboBoxItem>20</ComboBoxItem>
+                        </ComboBox>
+                        <Label Name="EventTheme2" Margin="6,156,699,174" Content="Veranstaltung 2" IsEnabled="False"/>
+                        <Label Name="EventLabelTitle2" Margin="8,190,741,145" Content="Titel" IsEnabled="False"/>
+                        <TextBox MaxLength="30" Name="EventTitle2" Margin="57,188,303,145" IsEnabled="False"/>
+                        <ComboBox SelectedIndex="0" x:Name="EventDay2" Margin="500,189,197,146" IsEnabled="False">
+                            <ComboBoxItem Content="Montag"/>
+                            <ComboBoxItem Content="Dienstag"/>
+                            <ComboBoxItem Content="Mittwoch"/>
+                            <ComboBoxItem Content="Donnerstag"/>
+                            <ComboBoxItem Content="Freitag"/>
+                        </ComboBox>
+                        <Label Name="EventLabelFrom2" Margin="602,189,153,146" Content="Von" IsEnabled="False"/>
+                        <ComboBox SelectedIndex="0" Name="EventFrom2" Margin="646,189,100,146" IsEnabled="False">
+                            <ComboBoxItem Content="8"/>
+                            <ComboBoxItem Content="9"/>
+                            <ComboBoxItem Content="10"/>
+                            <ComboBoxItem Content="11"/>
+                            <ComboBoxItem Content="12"/>
+                            <ComboBoxItem Content="13"/>
+                            <ComboBoxItem Content="14"/>
+                            <ComboBoxItem Content="15"/>
+                            <ComboBoxItem Content="16"/>
+                            <ComboBoxItem Content="17"/>
+                            <ComboBoxItem Content="18"/>
+                            <ComboBoxItem Content="19"/>
+                        </ComboBox>
+                        <Label Name="EventLabelTo2" Margin="699,189,60,146" Content="Bis" IsEnabled="False"/>
+                        <ComboBox SelectedIndex="0" Name="EventTo2" Margin="738,190,8,145" IsEnabled="False">
+                            <ComboBoxItem Content="9"/>
+                            <ComboBoxItem Content="10"/>
+                            <ComboBoxItem Content="11"/>
+                            <ComboBoxItem Content="12"/>
+                            <ComboBoxItem Content="13"/>
+                            <ComboBoxItem Content="14"/>
+                            <ComboBoxItem Content="15"/>
+                            <ComboBoxItem Content="16"/>
+                            <ComboBoxItem Content="17"/>
+                            <ComboBoxItem Content="18"/>
+                            <ComboBoxItem Content="19"/>
+                            <ComboBoxItem Content="20"/>
+                        </ComboBox>
+                        <Label Name="EventTheme3" Margin="6,226,699,104" Content="Veranstaltung 3" IsEnabled="False"/>
+                        <Label Name="EventLabelTitle3" Margin="8,260,741,75" Content="Titel" IsEnabled="False"/>
+                        <TextBox MaxLength="30" Name="EventTitle3" Margin="57,258,303,75" IsEnabled="False"/>
+                        <ComboBox SelectedIndex="0" x:Name="EventDay3" Margin="500,259,197,76" IsEnabled="False">
+                            <ComboBoxItem Content="Montag"/>
+                            <ComboBoxItem Content="Dienstag"/>
+                            <ComboBoxItem Content="Mittwoch"/>
+                            <ComboBoxItem Content="Donnerstag"/>
+                            <ComboBoxItem Content="Freitag"/>
+                        </ComboBox>
+                        <Label Name="EventLabelFrom3" Margin="602,259,153,76" Content="Von" IsEnabled="False"/>
+                        <ComboBox SelectedIndex="0" Name="EventFrom3" Margin="646,259,100,76" IsEnabled="False">
+                            <ComboBoxItem Content="8"/>
+                            <ComboBoxItem Content="9"/>
+                            <ComboBoxItem Content="10"/>
+                            <ComboBoxItem Content="11"/>
+                            <ComboBoxItem Content="12"/>
+                            <ComboBoxItem Content="13"/>
+                            <ComboBoxItem Content="14"/>
+                            <ComboBoxItem Content="15"/>
+                            <ComboBoxItem Content="16"/>
+                            <ComboBoxItem Content="17"/>
+                            <ComboBoxItem Content="18"/>
+                            <ComboBoxItem Content="19"/>
+                        </ComboBox>
+                        <Label Name="EventLabelTo3" Margin="699,259,60,76" Content="Bis" IsEnabled="False"/>
+                        <ComboBox SelectedIndex="0" Name="EventTo3" Margin="738,260,8,75" IsEnabled="False">
+                            <ComboBoxItem Content="9"/>
+                            <ComboBoxItem Content="10"/>
+                            <ComboBoxItem Content="11"/>
+                            <ComboBoxItem Content="12"/>
+                            <ComboBoxItem Content="13"/>
+                            <ComboBoxItem Content="14"/>
+                            <ComboBoxItem Content="15"/>
+                            <ComboBoxItem Content="16"/>
+                            <ComboBoxItem Content="17"/>
+                            <ComboBoxItem Content="18"/>
+                            <ComboBoxItem Content="19"/>
+                            <ComboBoxItem Content="20"/>
+                        </ComboBox>
+                        <Label Name="EventTheme4" Margin="6,296,699,34" Content="Veranstaltung 4" IsEnabled="False"/>
+                        <Label Name="EventLabelTitle4" Margin="8,330,741,5" Content="Titel" IsEnabled="False"/>
+                        <TextBox MaxLength="30" Name="EventTitle4" Margin="57,328,303,5" IsEnabled="False"/>
+                        <ComboBox SelectedIndex="0" x:Name="EventDay4" Margin="500,328,197,7" IsEnabled="False">
+                            <ComboBoxItem Content="Montag"/>
+                            <ComboBoxItem Content="Dienstag"/>
+                            <ComboBoxItem Content="Mittwoch"/>
+                            <ComboBoxItem Content="Donnerstag"/>
+                            <ComboBoxItem Content="Freitag"/>
+                        </ComboBox>
+                        <Label Name="EventLabelFrom4" Margin="602,329,153,6" Content="Von" IsEnabled="False"/>
+                        <ComboBox SelectedIndex="0" Name="EventFrom4" Margin="646,329,100,6" IsEnabled="False">
+                            <ComboBoxItem Content="8"/>
+                            <ComboBoxItem Content="9"/>
+                            <ComboBoxItem Content="10"/>
+                            <ComboBoxItem Content="11"/>
+                            <ComboBoxItem Content="12"/>
+                            <ComboBoxItem Content="13"/>
+                            <ComboBoxItem Content="14"/>
+                            <ComboBoxItem Content="15"/>
+                            <ComboBoxItem Content="16"/>
+                            <ComboBoxItem Content="17"/>
+                            <ComboBoxItem Content="18"/>
+                            <ComboBoxItem Content="19"/>
+                        </ComboBox>
+                        <Label Name="EventLabelTo4" Margin="699,329,60,6" Content="Bis" IsEnabled="False"/>
+                        <ComboBox SelectedIndex="0" Name="EventTo4" Margin="738,330,8,5" IsEnabled="False">
+                            <ComboBoxItem Content="9"/>
+                            <ComboBoxItem Content="10"/>
+                            <ComboBoxItem Content="11"/>
+                            <ComboBoxItem Content="12"/>
+                            <ComboBoxItem Content="13"/>
+                            <ComboBoxItem Content="14"/>
+                            <ComboBoxItem Content="15"/>
+                            <ComboBoxItem Content="16"/>
+                            <ComboBoxItem Content="17"/>
+                            <ComboBoxItem Content="18"/>
+                            <ComboBoxItem Content="19"/>
+                            <ComboBoxItem Content="20"/>
+                        </ComboBox>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Belegungsplan" Width="110">
+                <Grid>
+                    <Label Height ="30" Margin="10,10,234,330">Tab einschalten</Label>
+                    <CheckBox Name="ScheduleTab" Height ="30" Margin="116,17,647,323"></CheckBox>
+                    <Border BorderThickness="5" BorderBrush="LightGray" Margin="0,40,0,312"/>
+                    <Grid Name="ScheduleMainTab">
+                        <Grid Name="MainSchedule" Margin="7,58,170,10" IsEnabled="False">
+                            <Grid.RowDefinitions>
+                                <RowDefinition />
+
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+                                <RowDefinition />
+
+                            </Grid.RowDefinitions>
+                            <Grid.ColumnDefinitions>
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                                <ColumnDefinition />
+                            </Grid.ColumnDefinitions>
+
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="0" Grid.Column="0" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="0" Grid.Column="1" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="0" Grid.Column="2" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="0" Grid.Column="3" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="0" Grid.Column="4" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="0" Grid.Column="5" IsEnabled="False"/>
+
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="1" Grid.Column="0" Grid.RowSpan="2" IsEnabled="False"/>
+
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="1" Grid.Column="1" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="1" Grid.Column="2" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="1" Grid.Column="3" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="1" Grid.Column="4" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="1" Grid.Column="5" IsEnabled="False"/>
+
+
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="2" Grid.Column="1" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="2" Grid.Column="2" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="2" Grid.Column="3" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="2" Grid.Column="4" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="2" Grid.Column="5" IsEnabled="False"/>
+
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="3" Grid.Column="0" Grid.RowSpan="2" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="3" Grid.Column="1" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="3" Grid.Column="2" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="3" Grid.Column="3" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="3" Grid.Column="4" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="3" Grid.Column="5" IsEnabled="False"/>
+
+
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="4" Grid.Column="1" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="4" Grid.Column="2" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="4" Grid.Column="3" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="4" Grid.Column="4" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="4" Grid.Column="5" IsEnabled="False"/>
+
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="5" Grid.Column="0" Grid.RowSpan="2" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="5" Grid.Column="1" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="5" Grid.Column="2" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="5" Grid.Column="3" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="5" Grid.Column="4" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="5" Grid.Column="5" IsEnabled="False"/>
+
+
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="6" Grid.Column="1" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="6" Grid.Column="2" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="6" Grid.Column="3" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="6" Grid.Column="4" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="6" Grid.Column="5" IsEnabled="False"/>
+
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="7" Grid.Column="0" Grid.RowSpan="2" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="7" Grid.Column="1" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="7" Grid.Column="2" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="7" Grid.Column="3" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="7" Grid.Column="4" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="7" Grid.Column="5" IsEnabled="False"/>
+
+
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="8" Grid.Column="1" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="8" Grid.Column="2" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="8" Grid.Column="3" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="8" Grid.Column="4" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="8" Grid.Column="5" IsEnabled="False"/>
+
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="9" Grid.Column="0" Grid.RowSpan="2" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="9" Grid.Column="1" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="9" Grid.Column="2" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="9" Grid.Column="3" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="9" Grid.Column="4" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="9" Grid.Column="5" IsEnabled="False"/>
+
+
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="10" Grid.Column="1" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="10" Grid.Column="2" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="10" Grid.Column="3" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="10" Grid.Column="4" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="10" Grid.Column="5" IsEnabled="False"/>
+
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="11" Grid.Column="0" Grid.RowSpan="2" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="11" Grid.Column="1" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="11" Grid.Column="2" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="11" Grid.Column="3" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="11" Grid.Column="4" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="11" Grid.Column="5" IsEnabled="False"/>
+
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="12" Grid.Column="1" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="12" Grid.Column="2" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="12" Grid.Column="3" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="12" Grid.Column="4" IsEnabled="False"/>
+                            <Border BorderBrush="LightGray" BorderThickness="2" Grid.Row="12" Grid.Column="5" IsEnabled="False"/>
+
+                            <TextBlock Grid.ColumnSpan="2" Margin="2,1,101,20" Grid.Column="1" Grid.RowSpan="2" IsEnabled="False">Montag</TextBlock>
+                            <TextBlock Grid.Column="2" Grid.ColumnSpan="2" Margin="2,1,101,20" Grid.RowSpan="2" IsEnabled="False">Dienstag</TextBlock>
+                            <TextBlock Grid.Column="3" Grid.ColumnSpan="2" Margin="2,1,101,20" Grid.RowSpan="2" IsEnabled="False">Mittwoch</TextBlock>
+                            <TextBlock Grid.Column="4" Grid.ColumnSpan="2" Margin="3,0,100,0" IsEnabled="False">Donnerstag</TextBlock>
+                            <TextBlock Grid.Column="5" Margin="5,0,-6,0" IsEnabled="False">Freitag</TextBlock>
+                            <TextBlock Grid.Row="1" Margin="21,12,82,9" Grid.RowSpan="2" Grid.ColumnSpan="2" IsEnabled="False">8:00 - 10:00</TextBlock>
+                            <TextBlock Grid.ColumnSpan="2" Margin="14,12,89,9" Grid.Row="3" Grid.RowSpan="2" IsEnabled="False">10:00 - 12:00</TextBlock>
+                            <TextBlock Grid.Row="5" Margin="14,12,89,9" Grid.RowSpan="2" Grid.ColumnSpan="2" IsEnabled="False">12:00 - 14:00</TextBlock>
+                            <TextBlock Grid.ColumnSpan="2" Margin="14,11,89,9" Grid.Row="7" Grid.RowSpan="2" IsEnabled="False">14:00 - 16:00</TextBlock>
+                            <TextBlock Grid.Row="9" Margin="14,11,89,9" Grid.RowSpan="2" Grid.ColumnSpan="2" IsEnabled="False">16:00 - 18:00</TextBlock>
+                            <TextBlock Grid.ColumnSpan="2" Margin="14,11,89,9" Grid.Row="11" Grid.RowSpan="2" IsEnabled="False">18:00 - 20:00</TextBlock>
+
+
+                        </Grid>
+
+                        <Label Margin="629,211,129,124" Content="Von" IsEnabled="False"/>
+                        <ComboBox SelectedIndex="0" Name="ScheduleFrom" Margin="633,246,100,89" IsEnabled="False">
+                            <ComboBoxItem Content="8"/>
+                            <ComboBoxItem Content="9"/>
+                            <ComboBoxItem Content="10"/>
+                            <ComboBoxItem Content="11"/>
+                            <ComboBoxItem Content="12"/>
+                            <ComboBoxItem Content="13"/>
+                            <ComboBoxItem Content="14"/>
+                            <ComboBoxItem Content="15"/>
+                            <ComboBoxItem Content="16"/>
+                            <ComboBoxItem Content="17"/>
+                            <ComboBoxItem Content="18"/>
+                            <ComboBoxItem Content="19"/>
+                        </ComboBox>
+                        <Label Margin="720,211,38,124" Content="Bis" RenderTransformOrigin="0.5,1.686" IsEnabled="False"/>
+                        <ComboBox Name="ScheduleTo" Margin="725,246,10,89" IsEnabled="False">
+                            <ComboBoxItem Content="9"/>
+                            <ComboBoxItem Content="10"/>
+                            <ComboBoxItem Content="11"/>
+                            <ComboBoxItem Content="12"/>
+                            <ComboBoxItem Content="13"/>
+                            <ComboBoxItem Content="14"/>
+                            <ComboBoxItem Content="15"/>
+                            <ComboBoxItem Content="16"/>
+                            <ComboBoxItem Content="17"/>
+                            <ComboBoxItem Content="18"/>
+                            <ComboBoxItem Content="19"/>
+                            <ComboBoxItem Content="20"/>
+                        </ComboBox>
+
+                        <ComboBox SelectedIndex="0" Name="ScheduleDay" Margin="632,172,10,159" IsEnabled="False">
+                            <ComboBoxItem>Montag</ComboBoxItem>
+                            <ComboBoxItem>Dienstag</ComboBoxItem>
+                            <ComboBoxItem>Mittwoch</ComboBoxItem>
+                            <ComboBoxItem>Donnerstag</ComboBoxItem>
+                            <ComboBoxItem>Freitag</ComboBoxItem>
+                        </ComboBox>
+
+                        <Button Name="ScheduleAddButton" Margin="689,292,10,46" IsEnabled="False">Hinzufügen</Button>
+                        <Label Margin="629,138,60,190" IsEnabled="False">Tag</Label>
+                        <Label Margin="630,50,34,282" IsEnabled="False">Veranstaltungsname</Label>
+                        <TextBox MaxLength="13" Text="Veranstaltung" Name="ScheduleName" Margin="633,88,10,245" IsEnabled="False"></TextBox>
+                        <Button Name="ScheduleDeleteButton" Margin="689,329,10,10" IsEnabled="False">Entfernen</Button>
+                    </Grid>
+                </Grid>
+            </TabItem>
+            <TabItem Header="Wetter" Width="110">
+                <Grid>
+                    <Label Height ="30" Margin="10,10,234,330">Tab einschalten</Label>
+                    <CheckBox Name="WeatherTab" Height ="30" Margin="116,17,646,323"></CheckBox>
+                    <Border BorderThickness="7" BorderBrush="LightGray" Margin="0,40,0,312"/>
+                    <Grid Name="WeatherMainTab">
+                        <Label Margin="11,58,521,275" IsEnabled="False">Derzeit wird nur Openweathermap unterstützt!</Label>
+                        <Label Margin="12,95,630,236" IsEnabled="False">Openweathermap.org</Label>
+                        <Label Margin="13,134,660,193" IsEnabled="False">API-Key</Label>
+                        <TextBox Name="OpenWeatherAPI" Margin="89,133,478,206" IsEnabled="False"/>
+                    </Grid>
+                </Grid>
+            </TabItem>
+
+        </TabControl>
+        <Button Name="Refresh" Margin="41,417,658,22" RenderTransformOrigin="0.5,0.5" Content="Aktualisieren " />
+        <Button Name="SaveButton" Margin="670,419,35,22" RenderTransformOrigin="0.5,0.5" Content="Speichern" />
+        <Button Name="Pruefung" Margin="354,417,345,22" RenderTransformOrigin="0.5,0.5" Content="Prüfung" />
+
+
+
+    </Grid>
+</Window>
