@@ -1,0 +1,2 @@
+MainPackage=C:\Users\Workstation-TU\source\repos\Namenschild\CS\ForeGround_Prufung\bin\x86\Debug\ForeGround_Prufung_1.0.0.0_x86_Debug.appx
+SymbolPackage=C:\Users\Workstation-TU\source\repos\Namenschild\CS\ForeGround_Prufung\AppPackages\ForeGround_Prufung_1.0.0.0_Debug_Test\ForeGround_Prufung_1.0.0.0_x86_Debug.appxsym

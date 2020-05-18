@@ -1,0 +1,1 @@
+C:\Users\Workstation-TU\source\repos\Namenschild\UwpMessageRelay\UwpMessageRelay.csproj;x86

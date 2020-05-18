@@ -1,0 +1,2 @@
+MainPackage=C:\Users\Workstation-TU\source\repos\Namenschild\CS\bin\ARM\Debug\ForeGround_App_1.0.0.0_ARM_Debug.appx
+SymbolPackage=C:\Users\Workstation-TU\source\repos\Namenschild\CS\obj\ARM\Debug\Symbols\ForeGround_App_1.0.0.0_ARM_Debug.appxsym
